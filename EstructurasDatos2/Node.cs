@@ -85,10 +85,10 @@ namespace EstructurasDatos2
 
 	internal class WeightedNode
 	{
-		public int Value;
+		public string Value;
 		public List<Edge> Neighbors;
 
-		public WeightedNode(int _Value)
+		public WeightedNode(string _Value)
 		{
 			this.Value = _Value;
 			this.Neighbors = new List<Edge>();

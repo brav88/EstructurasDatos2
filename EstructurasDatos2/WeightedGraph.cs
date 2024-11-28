@@ -31,7 +31,7 @@ namespace EstructurasDatos2
 				if (opt == 1)
 				{
 					Console.WriteLine("Value:");
-					int num = Convert.ToInt16(Console.ReadLine());
+					string num = Console.ReadLine();
 
 					graph.AddNode(num);
 				}
@@ -39,10 +39,10 @@ namespace EstructurasDatos2
 				if (opt == 2)
 				{
 					Console.WriteLine("Value1:");
-					int num1 = Convert.ToInt16(Console.ReadLine());
+					string num1 = Console.ReadLine();
 
 					Console.WriteLine("Value2:");
-					int num2 = Convert.ToInt16(Console.ReadLine());
+					string num2 = Console.ReadLine();
 
 					Console.WriteLine("Weight:");
 					int weight = Convert.ToInt16(Console.ReadLine());
@@ -71,7 +71,7 @@ namespace EstructurasDatos2
 			nodes = new List<WeightedNode>();
 		}
 
-		public void AddNode(int value)
+		public void AddNode(string value)
 		{
 			if (FindNode(value) == null)
 			{
@@ -85,7 +85,7 @@ namespace EstructurasDatos2
 			}
 		}
 
-		public void AddEdge(int value1, int value2, int weight)
+		public void AddEdge(string value1, string value2, int weight)
 		{
 			WeightedNode node1 = FindNode(value1);
 			WeightedNode node2 = FindNode(value2);
@@ -110,7 +110,7 @@ namespace EstructurasDatos2
 			}
 		}
 
-		public WeightedNode FindNode(int value)
+		public WeightedNode FindNode(string value)
 		{
 			return nodes.Find(n => n.Value == value);
 		}
