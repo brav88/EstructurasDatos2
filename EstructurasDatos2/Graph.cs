@@ -21,7 +21,8 @@ namespace EstructurasDatos2
 				Console.WriteLine("What do you want to do in the Graph?");
 				Console.WriteLine("1. Add Node");
 				Console.WriteLine("2. Add Edge");
-				Console.WriteLine("4. Print");				
+				Console.WriteLine("3. Remove Edge");
+				Console.WriteLine("4. Print");
 				Console.WriteLine("9. Exit");
 
 				do
@@ -49,6 +50,17 @@ namespace EstructurasDatos2
 					graph.AddEdge(num1, num2);
 				}
 
+				if (opt == 3)
+				{
+					Console.WriteLine("Value1:");
+					int num1 = Convert.ToInt16(Console.ReadLine());
+
+					Console.WriteLine("Value2:");
+					int num2 = Convert.ToInt16(Console.ReadLine());
+
+					graph.RemoveEdge(num1, num2);
+				}
+
 				if (opt == 4)
 				{
 					graph.PrintGraphVisual();
@@ -62,7 +74,7 @@ namespace EstructurasDatos2
 
 	internal class Graph
 	{
-		List<GraphNode> nodes;
+		List<GraphNode> nodes;		
 
 		public Graph() 
 		{
@@ -94,6 +106,21 @@ namespace EstructurasDatos2
 				{
 					node1.Adjacents.Add(node2);
 					node2.Adjacents.Add(node1);
+				}
+			}
+		}
+
+		public void RemoveEdge(int value1, int value2)
+		{
+			GraphNode node1 = FindNode(value1);
+			GraphNode node2 = FindNode(value2);
+
+			if (node1 != null && node2 != null)
+			{
+				if (node1.Adjacents.Contains(node2) && node2.Adjacents.Contains(node1))
+				{
+					node1.Adjacents.Remove(node2);
+					node2.Adjacents.Remove(node1);
 				}
 			}
 		}
@@ -146,5 +173,5 @@ namespace EstructurasDatos2
 		{
 			return nodes.Find(n => n.Value == value);
 		}
-	}
+	}	
 }

@@ -82,4 +82,29 @@ namespace EstructurasDatos2
 			this.Adjacents = new List<GraphNode>();
 		}
 	}
+
+	internal class WeightedNode
+	{
+		public int Value;
+		public List<Edge> Neighbors;
+
+		public WeightedNode(int _Value)
+		{
+			this.Value = _Value;
+			this.Neighbors = new List<Edge>();
+		}
+	}
+
+	internal class Edge
+	{
+		public WeightedNode Destination;
+		public int Weight;
+
+		public Edge(WeightedNode _Destination, int _Weight)
+		{
+			this.Destination = _Destination;
+			this.Weight = _Weight;	
+		}
+	}
+
 }
